@@ -27,7 +27,7 @@ class App extends Component {
 
         setInterval(() => {
             this.fetchAll('cumhur');
-        }, 5000);
+        }, 10000);
     }
 
     buildRequests() {
@@ -123,6 +123,7 @@ class App extends Component {
             <div className="App">
                 <div className="container">
                     {this.state.init && this.state.loading && <div className="side-loader"><CircularProgress size={38} color="secondary" /></div>}
+
                     {this.state.init ? (
                         <Content data={this.state.data} />
                     ) : (
@@ -130,6 +131,8 @@ class App extends Component {
                             <CircularProgress size={60} />
                         </div>
                     )}
+
+                    {this.state.init && <div className="side-loader">Guncel: {moment(this.state.data.cumhur[0].updated_at, DATE_FORMAT).format('HH:mm:ss')}</div>}
                 </div>
             </div>
         );
