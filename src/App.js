@@ -34,14 +34,14 @@ class App extends Component {
         requests.meclis = [];
         for (let city = 1; city <= 81; city++) {
             requests.meclis.push(() => {
-                return axios.get(`/1/city/${city}.json`);
+                return axios.get(`/api/1/city/${city}.json`);
             });
         }
 
         requests.cumhur = [];
         for (let city = 1; city <= 81; city++) {
             requests.cumhur.push(() => {
-                return axios.get(`/2/city/${city}.json`);
+                return axios.get(`/api/2/city/${city}.json`);
             });
         }
     }
